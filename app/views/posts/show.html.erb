@@ -1,32 +1,5 @@
-<%= form_tag("/author") do %>
-    <% if @person.errors.any? %>
-      <div id="error_explanation">
-        <h2>There were some errors:</h2>
-        <ul>
-          <% @person.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-   
-   
-    <div class="field<%= ' field_with_errors' if @person.errors[:title].any? %>">
-      <%= label_tag "title", "Title" %>
-      <%= text_field_tag "title", @author.title%>
-    </div>
-   
-    <div class="field<%= ' field_with_errors' if @person.errors[:category].any? %>">
-      <%= label_tag "category", "Category" %>
-      <%= text_field_tag "category", @author.category %>
-    </div>
-
-
-    <div class="field<%= ' field_with_errors' if @person.errors[:content].any? %>">
-      <%= label_tag "content", "Content" %>
-       <p>Must be either "Fiction" or "Non-Fiction".</p>
-      <%= text_field_tag "content", @author.content%>
-    </div>
-   
-    <%= submit_tag "Create" %>
-  <% end %>
+<h2><%= @post.title %></h2>
+<%= link_to "edit", edit_post_path(@post) %>
+<p>A <%= @post.category %> post.</p>
+<hr />
+<p><%= @post.content %></p>
